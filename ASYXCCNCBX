@@ -163,7 +163,7 @@ LeftGroupBox:AddInput('Camlock prediction', {
     end
 })
 
-DickHead:AddInput('Smoothness', {
+LeftGroupBox:AddInput('Smoothness', {
     Default = tostring(getgenv().Mythic.smoothness),
     Numeric = true,
     Text = 'Camera Smoothness',
