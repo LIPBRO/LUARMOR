@@ -101,7 +101,7 @@ textLabel.TextSize = 14
 local function updateFpsAndTime()
     local fps = math.floor(workspace:GetRealPhysicsFPS())
     local currentTime = os.date("%I:%M %p") -- Format time as HH:MM AM/PM
-    textLabel.Text = string.format("Mythic💫 | Whitelisted✅ | %d FPS | %s", fps, currentTime)
+    textLabel.Text = string.format("Mythic | Whitelisted | %d FPS | %s", fps, currentTime)
 end
 
 -- Update FPS and time every heartbeat
@@ -128,60 +128,25 @@ local LeftGroupBox = Tabs.Main:AddLeftGroupbox('Lock Misc')
 
 
 getgenv().Mythic = {
-    Enabled = true,
-    HorizontalPrediction = 0.1,
-    VerticalPrediction = 0.1,
-    jumpoffset = -1.5,
-    ResolverEnabled = false,
-    SelectedPart = "HumanoidRootPart",
-    AutoPrediction = true,
-    AutoPredMode = "PingBased",  
-    Macro = "OFF", -- OFF or ON
-    ShootDelay = 0.22,
-    NoGroundShot = true,
-    AutoAir = false,
-    LookAt = true,
-    smoothness = 0.900,
-    TracerEnabled = true
+    Enabled = true, -- Whether the script is active
+    Prediction = 0.1678962, -- Combines horizontal and vertical predictions into one parameter
+    JumpOffset = -1.5, -- Handles jump prediction adjustments
+    ResolverEnabled = false, -- Whether to enable prediction correction
+    SelectedPart = "HumanoidRootPart", -- Targeted body part
+    AutoPrediction = true, -- Automatically adjusts prediction based on mode
+    AutoPredMode = "PingBased", -- Adjusts prediction relative to ping
+    Macro = "OFF", -- Determines whether macros are active
+    ShootDelay = 0.22, -- Delay between shots
+    NoGroundShot = true, -- Prevents shooting when the target is on the ground
+    AutoAir = false, -- Targets airborne players automatically
+    LookAt = true, -- Ensures your aim aligns with the target
+    Smoothness = 0.9, -- Adjusts aiming smoothness
+    TracerEnabled = true -- Enables visual tracers
 }
 
-LeftGroupBox:AddToggle('Enabled', {
-    Text = 'Tracer',
-    Default = getgenv().Mythic.TracerEnabled,
-    Callback = function(Value)
-        getgenv().Mythic.TracerEnabled = Value
-    end
-})
-
-LeftGroupBox:AddToggle('NoGroundShot', {
-    Text = 'No Ground Shot',
-    Default = getgenv().Mythic.NoGroundShot,
-    Callback = function(Value)
-        getgenv().Mythic.NoGroundShot = Value
-    end
-})
-
-LeftGroupBox:AddToggle('LookAt', {
-    Text = 'Look At',
-    Default = getgenv().Mythic.LookAt,
-    Callback = function(Value)
-        getgenv().Mythic.LookAt = Value
-    end
-})
-
-LeftGroupBox:AddToggle('resolvert', {
-    Text = 'Resolver',
-    Default = false,
-    Callback = function(Value)
-        getgenv().Mythic.ResolverEnabled = Value
-    end
-})
 
 
-local DickHead = Tabs.Main:AddLeftGroupbox('Camera')
-
-
-DickHead:AddToggle('CamLock', {
+LeftGroupBox:AddToggle('CamLock', {
     Text = 'CamLock',
     Default = getgenv().Mythic.Camera,
     Callback = function(Value)
@@ -189,9 +154,16 @@ DickHead:AddToggle('CamLock', {
     end
 })
 
+LeftGroupBox:AddInput('Camlock prediction', {
+    Default = tostring(getgenv().Mythic.Prediction), -- Initialize input with current Prediction value as a string
+    Numeric = true, -- Ensure the input is numeric only
+    Text = 'Camera Prediction', -- Label for the input field
+    Callback = function(Value) -- This function gets triggered when the user changes the value
+        getgenv().Mythic.Prediction = tonumber(Value) -- Update the Prediction value in Mythic table
+    end
+})
 
-
-DickHead:AddToggle('Enabled', {
+LeftGroupBox:AddToggle('Enabled', {
     Text = 'Target Lock',
     Default = getgenv().Mythic.Enabled,
     Callback = function(Value)
@@ -199,6 +171,50 @@ DickHead:AddToggle('Enabled', {
     end
 })
 
+LeftGroupBox:AddInput('Target prediction', {
+    Default = tostring(getgenv().Mythic.Prediction), -- Initialize input with current Prediction value as a string
+    Numeric = true, -- Ensure the input is numeric only
+    Text = 'Target Prediction', -- Label for the input field
+    Callback = function(Value) -- This function gets triggered when the user changes the value
+        getgenv().Mythic.Prediction = tonumber(Value) -- Update the Prediction value in Mythic table
+    end
+})
+
+
+local DickHead = Tabs.Main:AddLeftGroupbox('Camera')
+
+
+DickHead:AddToggle('Enabled', {
+    Text = 'Tracer',
+    Default = getgenv().Mythic.TracerEnabled,
+    Callback = function(Value)
+        getgenv().Mythic.TracerEnabled = Value
+    end
+})
+
+DickHead:AddToggle('NoGroundShot', {
+    Text = 'No Ground Shot',
+    Default = getgenv().Mythic.NoGroundShot,
+    Callback = function(Value)
+        getgenv().Mythic.NoGroundShot = Value
+    end
+})
+
+DickHead:AddToggle('LookAt', {
+    Text = 'Look At',
+    Default = getgenv().Mythic.LookAt,
+    Callback = function(Value)
+        getgenv().Mythic.LookAt = Value
+    end
+})
+
+DickHead:AddToggle('resolvert', {
+    Text = 'Resolver',
+    Default = false,
+    Callback = function(Value)
+        getgenv().Mythic.ResolverEnabled = Value
+    end
+})
 
 
 DickHead:AddInput('Smoothness', {
