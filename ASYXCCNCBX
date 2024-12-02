@@ -760,7 +760,7 @@ ImageButton.Draggable = true
 ImageButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)  -- Background color (not visible due to transparency)
 ImageButton.BackgroundTransparency = 0.350  -- Make the background fully transparent
 ImageButton.Size = UDim2.new(0, 100, 0, 90)  -- Set button size
-ImageButton.Image = "rbxassetid://134820707156642"  -- Set the image for the button
+ImageButton.Image = "rbxassetid://80642926305059"  -- Set the image for the button
 ImageButton.Position = UDim2.new(0.5, -25, 0.5, -25)  -- Position the button at the center
 
 local Ui2corner = Instance.new("UICorner")
@@ -873,7 +873,7 @@ end
 
 local function toggleLock()
     if enabled then
-        ImageButton.Image = "rbxassetid://134820707156642"
+        ImageButton.Image = "rbxassetid://80642926305059"
         enabled = false
         Plr = nil
         destroyTracer()  
@@ -887,7 +887,7 @@ local function toggleLock()
                 createTracer(game.Players.LocalPlayer, Plr)  
             end
             
-            ImageButton.Image = "rbxassetid://134820707156642"
+            ImageButton.Image = "rbxassetid://80642926305059"
             Library:Notify("Target Locked: " .. tostring(Plr.Character.Humanoid.DisplayName))
         end
     end
