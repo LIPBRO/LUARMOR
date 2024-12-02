@@ -123,7 +123,7 @@ Library:OnUnload(function()
     Library.Unloaded = true
 end)
 
-local LeftGroupBox = Tabs.Main:AddLeftGroupbox('Lock Misc')
+local LeftGroupBox = Tabs.Main:AddLeftGroupbox('Lock menu')
 
 
 
@@ -163,6 +163,15 @@ LeftGroupBox:AddInput('Camlock prediction', {
     end
 })
 
+DickHead:AddInput('Smoothness', {
+    Default = tostring(getgenv().Mythic.smoothness),
+    Numeric = true,
+    Text = 'Camera Smoothness',
+    Callback = function(Value)
+        getgenv().Mythic.smoothness = tonumber(Value)
+    end
+})
+
 LeftGroupBox:AddToggle('Enabled', {
     Text = 'Target Lock',
     Default = getgenv().Mythic.Enabled,
@@ -181,7 +190,7 @@ LeftGroupBox:AddInput('Target prediction', {
 })
 
 
-local DickHead = Tabs.Main:AddLeftGroupbox('Camera')
+local DickHead = Tabs.Main:AddLeftGroupbox('General settings')
 
 
 DickHead:AddToggle('Enabled', {
@@ -213,16 +222,6 @@ DickHead:AddToggle('resolvert', {
     Default = false,
     Callback = function(Value)
         getgenv().Mythic.ResolverEnabled = Value
-    end
-})
-
-
-DickHead:AddInput('Smoothness', {
-    Default = tostring(getgenv().Mythic.smoothness),
-    Numeric = true,
-    Text = 'Camera Smoothness',
-    Callback = function(Value)
-        getgenv().Mythic.smoothness = tonumber(Value)
     end
 })
 
