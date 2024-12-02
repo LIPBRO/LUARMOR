@@ -128,20 +128,20 @@ local LeftGroupBox = Tabs.Main:AddLeftGroupbox('Lock menu')
 
 
 getgenv().Mythic = {
-    Enabled = true, -- Whether the script is active
-    Prediction = 0.1678962, -- Combines horizontal and vertical predictions into one parameter
-    JumpOffset = -1.5, -- Handles jump prediction adjustments
-    ResolverEnabled = false, -- Whether to enable prediction correction
-    SelectedPart = "HumanoidRootPart", -- Targeted body part
-    AutoPrediction = true, -- Automatically adjusts prediction based on mode
-    AutoPredMode = "PingBased", -- Adjusts prediction relative to ping
-    Macro = "OFF", -- Determines whether macros are active
-    ShootDelay = 0.22, -- Delay between shots
-    NoGroundShot = true, -- Prevents shooting when the target is on the ground
-    AutoAir = false, -- Targets airborne players automatically
-    LookAt = true, -- Ensures your aim aligns with the target
-    Smoothness = 0.9, -- Adjusts aiming smoothness
-    TracerEnabled = true -- Enables visual tracers
+    Enabled = true, 
+    Prediction = 0.1678962,
+    JumpOffset = -1.5,
+    ResolverEnabled = false,
+    SelectedPart = "HumanoidRootPart",
+    AutoPrediction = true,
+    AutoPredMode = "PingBased",
+    Macro = "OFF",
+    ShootDelay = 0.22,
+    NoGroundShot = true,
+    AutoAir = false,
+    LookAt = true,
+    Smoothness = 0.9,
+    TracerEnabled = true 
 }
 
 
