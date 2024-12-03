@@ -226,37 +226,6 @@ DickHead:AddToggle('resolvert', {
 })
 
 
-local sigmaox = Tabs.Main:AddLeftGroupbox('Auto Air')
-
-
-
-sigmaox:AddToggle('Flicker', {
-    Text = 'Flick',
-    Default = getgenv().Mythic.Flick,
-    Callback = function(Value)
-        getgenv().Mythic.Flick = Value
-    end
-})
-
-sigmaox:AddToggle('Auto Air', {
-    Text = 'Enable Auto Air',
-    Default = getgenv().Mythic.AutoAir,
-    Callback = function(Value)
-        getgenv().Mythic.AutoAir = Value
-    end
-})
-
-sigmaox:AddInput('ShootDelay', {
-    Default = tostring(getgenv().Mythic.ShootDelay),
-    Numeric = true,
-    Text = 'Shoot Delay',
-    Callback = function(Value)
-        getgenv().Mythic.ShootDelay = tonumber(Value)
-    end
-})
-
-
-
 
 local RightGroupBox = Tabs.Main:AddRightGroupbox('Prediction Settings')
 
@@ -610,6 +579,35 @@ Players.PlayerRemoving:Connect(function(player)
         playerHighlights[player.UserId] = nil
     end
 end)
+
+local sigmaox = Tabs.Main:AddRightGroupbox('Auto Air')
+
+
+
+sigmaox:AddToggle('Flicker', {
+    Text = 'Flick',
+    Default = getgenv().Mythic.Flick,
+    Callback = function(Value)
+        getgenv().Mythic.Flick = Value
+    end
+})
+
+sigmaox:AddToggle('Auto Air', {
+    Text = 'Enable Auto Air',
+    Default = getgenv().Mythic.AutoAir,
+    Callback = function(Value)
+        getgenv().Mythic.AutoAir = Value
+    end
+})
+
+sigmaox:AddInput('ShootDelay', {
+    Default = tostring(getgenv().Mythic.ShootDelay),
+    Numeric = true,
+    Text = 'Shoot Delay',
+    Callback = function(Value)
+        getgenv().Mythic.ShootDelay = tonumber(Value)
+    end
+})
 
 -- Initialize the highlight effect based on the global variable
 getgenv().highlightEnabled = false  -- Default state
