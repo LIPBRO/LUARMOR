@@ -3672,13 +3672,15 @@ local Logo = Instance.new("ImageLabel")
 Logo.Name = "Logo"
 Logo.Parent = Frame
 Logo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Logo.BackgroundTransparency = 5.000
+Logo.BackgroundTransparency = 1.000 -- Fully transparent background
 Logo.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Logo.BorderSizePixel = 0
-Logo.Position = UDim2.new(0.326732665, 0, 0, 0)
-Logo.Size = UDim2.new(0, 43, 0, 43)
-Logo.Image = "rbxassetid://YOUR_IMAGE_ID" -- Replace YOUR_IMAGE_ID
+Logo.AnchorPoint = Vector2.new(0.5, 0.5) -- Center the logo
+Logo.Position = UDim2.new(0.5, 0, 0.5, 0) -- Middle of the frame
+Logo.Size = UDim2.new(0, 60, 0, 60) -- Adjust size as needed
+Logo.Image = "rbxassetid://78342062013795" -- Replace with your image ID
 Logo.ImageTransparency = 0.200
+
 
 local TextButton = Instance.new("TextButton")
 TextButton.Parent = Frame
@@ -3689,7 +3691,7 @@ TextButton.BorderSizePixel = 0
 TextButton.Position = UDim2.new(0.0792079195, 0, 0.18571429, 0)
 TextButton.Size = UDim2.new(0, 80, 0, 44)
 TextButton.Font = Enum.Font.SourceSansSemibold
-TextButton.Text = "Mythic"
+TextButton.Text = ""
 TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextButton.TextScaled = true
 TextButton.TextSize = 14.000
@@ -3704,12 +3706,12 @@ if Mythic.Camera_Lock.Enabled then
     if Cenabled == true then
           Cenabled = false
          PlrC = GetClosestPlr()
-         TextButton.Text = "Camlock Off"
+         TextButton.Text = ""
      SendNotification("Unlocked")
            else
       PlrC = GetClosestPlr()
      Cenabled = true
-     TextButton.Text = "Camlock On"
+     TextButton.Text = ""
    SendNotification(PlrC.Character.Humanoid.DisplayName)
             end
    else
