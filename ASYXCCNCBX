@@ -2426,7 +2426,7 @@ local function MenuNameUpdate()
         local PlaceHolder = ''
         for i = 1, #Name do
             PlaceHolder = PlaceHolder .. string.sub(Name, i, i)
-            Menu:SetTitle(PlaceHolder .. '<font color="#305cde' .. tostring(Menu.Accent:ToHex()) .. '">.Tech</font> | GUI')
+            Menu:SetTitle(PlaceHolder .. '<font color="#' .. tostring(Menu.Accent:ToHex()) .. '">.Tech</font> | GUI')
             task.wait(0.25)
         end
     end
@@ -2447,7 +2447,7 @@ Menu.CheckBox("Main", "Target Aim", "Enabled", Configurations.Target.Enabled, fu
     Configurations.Target.Enabled = a
 end)
 
-Menu.TextBox("Main", "Target Aim", "Prediction", '0.135', function(a)
+Menu.TextBox("Main", "Target Aim", "Prediction", '0.1355', function(a)
     Configurations.Target.Prediction = a
 end)
 
